@@ -10,14 +10,15 @@ public class Generator {
 //    private static final List<Integer> LARGE_NUMBERS = new ArrayList<>(Arrays.asList(25,50,75,100));
     private static final Random random = new Random();
 //    private static final List<Integer> SMALL_NUMBERS = new ArrayList<>(Arrays.asList(21,2,3,4,5,6,7,8,9,10));
-
+// Approx 650ms for 100000
     public static void main(String[] args) {
-        long startTime = System.currentTimeMillis();
-        for(int i=0; i<100000; i++) {
-            Generator.generate(3);
-        }
-        long endTime = System.currentTimeMillis();
-        System.out.println("without get: " + (endTime-startTime));
+//        long startTime = System.currentTimeMillis();
+//        for(int i=0; i<100000; i++) {
+//            Generator.generate(3);
+//        }
+//        long endTime = System.currentTimeMillis();
+//        System.out.println("without get: " + (endTime-startTime));
+        System.out.println(Generator.generate(3));
     }
 
     public static String generate(int numberOfLarge) {
@@ -25,9 +26,9 @@ public class Generator {
         List<Integer> numbers = selectNumbers(numberOfLarge);
 
         while (true) {
-            int total = 0;
-            int counter = 0;
-            String solution = "0";
+            int total = numbers.get(0);
+            int counter = 1;
+            String solution = numbers.get(0).toString();
             while(counter < 6) {
                 int num = numbers.get(counter);
                 switch(random.nextInt(4)) {
